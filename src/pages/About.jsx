@@ -19,7 +19,7 @@ function About() {
           {/* content */}
           <div className="md:w-1/2 w-full">
             <p className="leading-tight ">
-              Jigjiga University is one of the public higher institutions that was founded in March 2007, along with the Second-Generation universities in Ethiopia. It is located in the emerging town of Jigjiga the capital city of Ethiopian Somali regional state, 635 kilometers away from Addis Ababa. <br /> <br /> The University officially started  its service with 712 students, 66 and 99 administrative in three faculties in 2007.
+              iftin University is one of the public higher institutions that was founded in March 2007, along with the Second-Generation universities in Ethiopia. It is located in the emerging town of Jigjiga the capital city of Ethiopian Somali regional state, 635 kilometers away from Addis Ababa. <br /> <br /> The University officially started  its service with 712 students, 66 and 99 administrative in three faculties in 2007.
 
               In the recent years, the intake capacity is increasing from year to year. So currently, it has a total of 21,554 students studying in 57 various academic programs and 627 post-graduate students pursuing in six academic programs.
                 <br /> <br /> These programs are operating under eight Colleges, three Schools and an Institute.
