@@ -12,8 +12,8 @@ function Home() {
 
       {/* content */}
       <div className="md:w-1/2 w-full ">
-        <h1 className="font-bold md:text-3xl text-2xl capitalize mb-4">Welcome to JigJiga Libarray</h1>
-        <p className="md:text-lg text-md text-gray-700 capitalize mb-4">jigjiga libararry is a 
+        <h1 className="font-bold md:text-3xl text-2xl capitalize mb-4">Welcome to iftin Libarray</h1>
+        <p className="md:text-lg text-md text-gray-700 capitalize mb-4">iftin libararry is a 
           place where you can find all the books
           you need for your study and research. 
           We have a wide range of books in different fields,
