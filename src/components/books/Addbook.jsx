@@ -28,8 +28,10 @@ function Addbook() {
         try {
             const response = await axios.post("https://jju.saynis.store/api/books", formData)
 
+
             if(response.status != 201){
                 toast.error("feiled to create")
+                return
             }
 
             toast.success("book created seccessfuly")
@@ -47,6 +49,7 @@ function Addbook() {
                  navigate("/books")
            },2000)
         } catch (error) {
+            console.log(error.message)
            toast.error(error.message)
         }
 
