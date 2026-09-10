@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { FaCartArrowDown } from "react-icons/fa6";
 import { IoMdMenu } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 
 
@@ -10,6 +11,50 @@ function Header() {
 
 
   const [open, setOpen] = useState(false)
+  const [userData, setUserData] = useState({})
+
+
+  const navigate = useNavigate()
+
+
+  useEffect(()=>{
+   
+     const fetchUserData = async () => {
+      try {
+        const response = await axios.get(
+          "https://jju.saynis.store/api/user/profile",
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+
+        if (response.data.status === "Success") {
+          setUserData(response.data);
+          console.log(userData)
+        }
+      } catch (error) {
+        if (error.response && error.response.status === 401) {
+          // If token is invalid or expired
+          localStorage.removeItem("token");
+          navigate("/");
+        }
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+
+
+    fetchUserData()
+
+
+  },[])
+
+  
+   
+
+  
 
 
   return (
@@ -65,18 +110,27 @@ function Header() {
             {/* buttons div */}
 
             <div className="md:flex-row flex flex-col  md:gap-8 gap-4 mx-auto ">
-              <button className="text-xl font-bold md:mx-auto mx-0">Login</button>
-              <button className="py-2  md:mx-auto mx-0
-            px-6 bg-[#2A7EFF] text-xl rounded-md text-white
+
+            {userData?.user ? (
+              <span>{userData?.user?.username}</span>
+            ) : (
+              <> 
+                 <Link to="/login"> 
+              <button className="cursor-pointer  text-xl font-bold md:mx-auto mx-0">Login</button>
+              </Link>
+
+            <Link to="/register"> 
+            <button className="py-2 
+            px-6 bg-[#2A7EFF] text-xl rounded-md text-white cursor-pointer
             ">Sign up</button>
 
+            </Link>
+            </>
+            )}
+
+           
+
             </div>
-
-
-
-
-
-
 
 
 
